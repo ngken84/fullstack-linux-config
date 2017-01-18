@@ -15,6 +15,8 @@ The goal of this project is to teach us:
 
 ### Overall
 * Ubuntu
+  * AWS server
+  * Server IP Address: 
   * upgraded 1/18/2017
 
 ### Firewall
@@ -32,7 +34,16 @@ The goal of this project is to teach us:
 ### Installed Software
 * Apache HTTP Server (apache2)
 * Python WSGI adapter module for Apache (libapache2-mod-wsgi)
-
+* Header files and a static library for Python (python-dev)
+* Git: fast, scalable, distributed revision control system (git)
+* Python Distutils Enhancements (python-setuptools)
+* Python package installer (python-pip)
+* Postgres: object-relational SQL database (postgresql)
+* Postgres: additional facilities for PostgreSQL (postgresql-contrib)
+* Python module for PostgreSQL (python-psycopg2)
+* Python Packages:
+  * Flask (Flask)
+  * SQLAlchemy (sqlalchemy)
 
 ## Steps Taken
 
