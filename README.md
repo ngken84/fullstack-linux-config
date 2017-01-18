@@ -11,6 +11,29 @@ The goal of this project is to teach us:
 
    I used Git Bash because it served my purposes but there are other more robusts ones like [Putty](http://www.putty.org/)
 
+## Configuration Overview
+
+### Overall
+* Ubuntu
+  * upgraded 1/18/2017
+
+### Firewall
+* By default block all incoming
+* By default allow all outgoing
+* Allow port 2200 (SSH)
+* Allow port 80 (HTTP)
+* Allow port 123 (NTP)
+
+### Users
+* ken
+  * sudo rights
+  * public key encryption required for login
+  
+### Installed Software
+* Apache HTTP Server (apache2)
+* Python WSGI adapter module for Apache (libapache2-mod-wsgi)
+
+
 ## Steps Taken
 
 ###1. Connect to the Remote Server
@@ -120,4 +143,5 @@ ssh -i ~/.ssh/kenp5key ken@xx.xx.xx.xx -p 2200
 
    Used to set up the UFW firewall 
 3. [Changing the SSH Port for Your Linux Server](https://www.godaddy.com/help/changing-the-ssh-port-for-your-linux-server-7306)
-
+4. [How To Deploy a Flask Application on an Ubuntu VPS](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
+5. [Apache HTTP Server Server Version 2.4 Getting Started](http://httpd.apache.org/docs/current/getting-started.html)
