@@ -156,3 +156,4 @@ ssh -i ~/.ssh/kenp5key ken@xx.xx.xx.xx -p 2200
 3. [Changing the SSH Port for Your Linux Server](https://www.godaddy.com/help/changing-the-ssh-port-for-your-linux-server-7306)
 4. [How To Deploy a Flask Application on an Ubuntu VPS](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
 5. [Apache HTTP Server Server Version 2.4 Getting Started](http://httpd.apache.org/docs/current/getting-started.html)
+6. [mod_wsgi (Apache)](http://flask.pocoo.org/docs/0.12/deploying/mod_wsgi/)
