@@ -143,7 +143,14 @@ To login in the future, you must use the line:
 ```
 ssh -i ~/.ssh/kenp5key ken@xx.xx.xx.xx -p 2200
 ```
-
+Remove remote login for the remote user
+```
+sudo nano /etc/ssh/sshd_config
+```
+Change the line with PermitRootLogin to
+```
+PermitRootLogin no
+```
 ###4. Create your user
 
 ## Resources Used
@@ -157,3 +164,4 @@ ssh -i ~/.ssh/kenp5key ken@xx.xx.xx.xx -p 2200
 4. [How To Deploy a Flask Application on an Ubuntu VPS](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
 5. [Apache HTTP Server Server Version 2.4 Getting Started](http://httpd.apache.org/docs/current/getting-started.html)
 6. [mod_wsgi (Apache)](http://flask.pocoo.org/docs/0.12/deploying/mod_wsgi/)
+7. [HOW DO I DISABLE SSH LOGIN FOR THE ROOT USER?](https://mediatemple.net/community/products/dv/204643810/how-do-i-disable-ssh-login-for-the-root-user)
