@@ -151,7 +151,30 @@ Change the line with PermitRootLogin to
 ```
 PermitRootLogin no
 ```
-###4. Create your user
+###4. Create Grader User
+#####1. Create the user
+```
+sudo adduser grader
+```
+Create a password. Enter all the details. 
+
+#####2. Give user sudo access
+```
+nano /etc/sudoers.d/grader
+```
+Add the following line into that file and save & exit
+```
+grader ALL=(ALL) ALL
+```
+#####3. Force the user to create a public key for login
+```
+sudo nano /etc/ssh/sshd_config
+```
+Ensure that this line exists
+```
+PasswordAuthentication no
+```
+
 
 ## Resources Used
 1. The Awesome Udacity Courses
