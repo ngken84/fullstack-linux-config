@@ -175,6 +175,28 @@ Ensure that this line exists
 PasswordAuthentication no
 ```
 
+###5.Install Required Packages
+#####1. Update your Linux Server
+```
+sudo apt-get update
+sudo apt-get upgrade
+```
+
+#####2. Install Apache HTTP Server
+```
+sudo apt-get install apache2
+sudo apt-get libapache2-mod-wsgi
+```
+#####3. Install Required Python software
+``` 
+sudo apt-get install python-dev
+sudo apt-get install python-setuptools
+sudo apt-get install python-pip
+sudo apt-get install git
+sudo apt-get install postgresql postgresql-contrib
+sudo apt-get install python-psycopg2
+```
+
 
 ## Resources Used
 1. The Awesome Udacity Courses
