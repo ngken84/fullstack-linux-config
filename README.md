@@ -16,7 +16,7 @@ The goal of this project is to teach us:
 ### Overall
 * Ubuntu
   * AWS server
-  * Server IP Address: 35.166.166.97
+  * Server IP Address: 35.166.166.97/catalog
   * upgraded 1/18/2017
 
 ### Firewall
