@@ -30,6 +30,11 @@ The goal of this project is to teach us:
 * ken
   * sudo rights
   * public key encryption required for login
+* grader
+  * sudo rights
+  * requires public key sign in after first sign in
+* catalog
+   * has role in postgres database for application purposes
   
 ### Installed Software
 * Apache HTTP Server (apache2)
@@ -45,6 +50,7 @@ The goal of this project is to teach us:
 * Python Packages:
   * Flask (Flask)
   * SQLAlchemy (sqlalchemy)
+  * Oauth2 client upgrade (oauth2client)
 
 ## Steps Taken
 
