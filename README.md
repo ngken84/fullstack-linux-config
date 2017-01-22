@@ -230,7 +230,7 @@ Install the required packages
 sudo pip install Flask
 sudo pip install sqlalchemy
 ```
-#####6. Set up your database
+###6. Set up your database
 Create a new user for the catalog app
 ```
 sudo adduser catalog
@@ -270,7 +270,67 @@ Save and exit and run:
 ```
 sudo python database_setup.py
 ```
+###7. Further set up the application
+#####1. Set up your client secrets
+Go to you [google app console](https://console.developers.google.com) and create an Oauth json file. 
 
+Copy the json file to 
+```
+/usr/share/item_catalog/client_secrets.json
+```
+Now edit your __init__.py file
+Change the lines:
+```
+CLIENT_ID = json.loads(
+   open('/usr/share/item_catalog/clients_secrets.json','r').read())['web']['client_id']
+
+engine = create_engine('postgresql+psycopg2://catalog:Hello123@localhost/catalogdb')
+```
+and the last line:
+```
+   app.run(host='xx.xx.xx.xx', port=8080)
+```
+save and exit
+
+Create the wsgi file
+```
+sudo mkdir wsgi
+sudo nano wsgi/catalogapp.wsgi
+```
+Enter the following text into the file:
+```
+import os
+import sys
+
+activate_this = '/usr/share/item_catalog/venv/bin/activate_this.py'
+execfile(activate_this, dict(__file__=activate_this))
+
+sys.stdout = sys.stderr
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.realpath(__file__)), '../..'))
+
+sys.path.append('/usr/share/item_catalog/')
+
+from item_catalog import app as application
+```
+Create the conf file for the application
+```
+sudo nano /etc/apache2/conf-enabled/catalog.conf
+```
+Enter the following:
+```
+WSGIScriptAlias /catalog /usr/share/item_catalog/wsgi/catalogapp.wsgi
+WSGIScriptReloading On
+
+<Directory /usr/share/item_catalog/wsgi>
+   Order allow,deny
+   Allow from all
+</Directory>
+```
+Restart the server and you are done!
+```
+sudo service apache2 restart
+```
 
 ## Resources Used
 1. The Awesome Udacity Courses
@@ -284,3 +344,4 @@ sudo python database_setup.py
 5. [Apache HTTP Server Server Version 2.4 Getting Started](http://httpd.apache.org/docs/current/getting-started.html)
 6. [mod_wsgi (Apache)](http://flask.pocoo.org/docs/0.12/deploying/mod_wsgi/)
 7. [HOW DO I DISABLE SSH LOGIN FOR THE ROOT USER?](https://mediatemple.net/community/products/dv/204643810/how-do-i-disable-ssh-login-for-the-root-user)
+8. [How To Deploy a Python Flask Application with Apache and mod_wsgi](https://www.youtube.com/watch?v=x6SvecADw2M&t)
