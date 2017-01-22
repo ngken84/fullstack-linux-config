@@ -41,6 +41,7 @@ The goal of this project is to teach us:
 * Postgres: object-relational SQL database (postgresql)
 * Postgres: additional facilities for PostgreSQL (postgresql-contrib)
 * Python module for PostgreSQL (python-psycopg2)
+* Python Virtual Environment (virtualenv)
 * Python Packages:
   * Flask (Flask)
   * SQLAlchemy (sqlalchemy)
@@ -195,6 +196,79 @@ sudo apt-get install python-pip
 sudo apt-get install git
 sudo apt-get install postgresql postgresql-contrib
 sudo apt-get install python-psycopg2
+sudo pip install virtualenv
+sudo pip install --upgrade oauth2client
+```
+#####4. Install your application
+We use git to clone the application:
+```
+sudo git clone "repository-here"
+```
+
+Rename the directory to something more user friendly
+```
+sudo mv fullstack-item-catalog item_catalog
+```
+Next we rename the application to __init__.py
+```
+cd item_catalog
+sudo mv app.py __init__.py
+```
+
+#####5. Set up your virtual environment
+
+Inside the directory let's create a virtual environment
+```
+sudo virtualenv venv
+```
+Enter the VirtualEnvironment
+```
+source venv/bin/activate
+```
+Install the required packages
+```
+sudo pip install Flask
+sudo pip install sqlalchemy
+```
+#####6. Set up your database
+Create a new user for the catalog app
+```
+sudo adduser catalog
+```
+Fill in ther user's details
+
+Log into the postgres user to update database
+```
+sudo su - postgres
+```
+Get into the PostgreSQL database
+```
+psql
+```
+Create a role for the database
+```
+CREATE ROLE catalog WITH LOGIN;
+ALTER ROLE catalog WITH PASSWORD 'Hello123';
+```
+Create the database
+```
+CREATE DATABASE catalogdb;
+```
+We are all set, we can quit the database using:
+```
+\q
+```
+We can now setup our database but first we need to alter our database_setup.py
+```
+sudo nano /usr/share/item_catalog/database_setup.py
+```
+Alter the line:
+```
+engine = create_engine('postgresql+psycopg2://catalog:Hello123@localhost/catalogdb')
+```
+Save and exit and run:
+```
+sudo python database_setup.py
 ```
 
 
